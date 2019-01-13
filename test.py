@@ -38,7 +38,7 @@ read = {
 }
 def autorestart():
     print("[ AUTO RESTARTED ]")
-    time.sleep(1500)
+    time.sleep(2000000)
     restart_program()
 
 thread1 = threading.Thread(target=autorestart)
@@ -276,7 +276,7 @@ def lurk(to,text):
         ret_ ="「Lurk」\nLurk State: DISABLED♪"
     line.sendMessage(to, ret_+"\nCommand:\n Lurk Point\n  Usage: lurk on\n Lurk Del\n  Usage:  lurk off\n Lurk Cek\n  Usage: lurk result")
 def about(to,text):
-    agler = "uc01e543dea7fe2d04b8c5141edc3a749"  
+    agler = "mid"  
     friend = line.getAllContactIds()
     group = line.getGroupIdsJoined()
     blockedlist = line.getBlockedContactIds()
@@ -341,7 +341,7 @@ def autoLike():
                 c = i['post']['postInfo']['postId']
                 d = i['post']['userInfo']['mid']      
                 try:                    
-                    line.likePost(d,c,random.choice([1001,1001,1003,1004,1005]))
+              #      line.likePost(d,c,random.choice([1005]))
                     line.createComment(d,c,'{}'.format(wait['comment']))
                 except:
                     pass
