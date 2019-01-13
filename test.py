@@ -108,12 +108,12 @@ def SEND_MESSAGE(op):
             if agtxt.lower() == 'mentionall':
                 group = line.getGroup(acorp)
                 midMembers = [contact.mid for contact in group.members]
-                midSelect = len(midMembers)//20
+                midSelect = len(midMembers)//1
                 for mentionMembers in range(midSelect+1):
                     no = 0
                     ret_ = "╔══[ Mention Members ]"
                     dataMid = []
-                    for dataMention in group.members[mentionMembers*20 : (mentionMembers+1)*20]:
+                    for dataMention in group.members[mentionMembers*1 : (mentionMembers+1)*20]:
                         dataMid.append(dataMention.mid)
                         no += 1
                         ret_ += "\n╠ {}. @!".format(str(no))
@@ -222,7 +222,7 @@ def sidertag(to, text='', dataMid=[]):
         for rom in wait2["setTime"][to].items():
             chiya.append(rom[1])
         for b in chiya:
-            a = str(timeago.format(now,b/1000))
+            a = str(timeago.format(now,b/1))
             no+=1
             list_text+='\n   '+str(no)+'. @[list-'+str(i)+']\n     「 '+a+" 」"
             i=i+1
@@ -341,7 +341,7 @@ def autoLike():
                 c = i['post']['postInfo']['postId']
                 d = i['post']['userInfo']['mid']      
                 try:                    
-                    line.likePost(d,c,random.choice([1001,1002,1003,1004,1005]))
+                    line.likePost(d,c,random.choice([1001,1001,1003,1004,1005]))
                     line.createComment(d,c,'{}'.format(wait['comment']))
                 except:
                     pass
