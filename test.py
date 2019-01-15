@@ -11,9 +11,9 @@ import time, random, sys, json, codecs, threading, asyncio, glob, re, string, os
 import timeago
 botStart = time.time()
 
-line = LINE('VENZY@HI2.in', 'ALIAHMADI1')
+#line = LINE('VENZY@HI2.in', 'ALIAHMADI1')
 #line = LINE()
-#line = LINE("")
+line = LINE("")
 
 #Put your mid only(respon bot) 
 acorp = ["mid","mid","mid"]
