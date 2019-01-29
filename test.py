@@ -341,8 +341,8 @@ def autoLike():
                 c = i['post']['postInfo']['postId']
                 d = i['post']['userInfo']['mid']      
                 try:                    
-              #      line.likePost(d,c,random.choice([1005]))
-                    line.createComment(d,c,'{}'.format(wait['comment']))
+                    line.likePost(d,c,random.choice([1005]))
+              #      line.createComment(d,c,'{}'.format(wait['comment']))
                 except:
                     pass
         else:
