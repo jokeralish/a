@@ -109,7 +109,7 @@ def autolike():
 
 						kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"aʟɨsɦ ʝօҡɛʀ ɮօt")
 
-						print "DiLike"
+	#					print "DiLike"
 
 					except:
 
