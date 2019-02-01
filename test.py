@@ -12,8 +12,8 @@ import timeago
 botStart = time.time()
 
 #line = LINE('EMAIL', 'PASSWORD')
-#line = LINE()
-line = LINE("EBgshmMcc8dd8EXGlvV0.i0U6uNvJVADCCihHgrpyWa.tVT0Eu+6kn+7QUTdYbcnx0YPXS4XzQFh5jXrFscblX4=")
+line = LINE("")
+#line = LINE("EBgshmMcc8dd8EXGlvV0.i0U6uNvJVADCCihHgrpyWa.tVT0Eu+6kn+7QUTdYbcnx0YPXS4XzQFh5jXrFscblX4=")
 
 #Put your mid only(respon bot) 
 acorp = ["u234bba527563bda75c7081e11913d8c0","u234bba527563bda75c7081e11913d8c0","u234bba527563bda75c7081e11913d8c0"]
