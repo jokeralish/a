@@ -13,10 +13,10 @@ botStart = time.time()
 
 #line = LINE('EMAIL', 'PASSWORD')
 #line = LINE()
-line = LINE("")
+line = LINE("EBHGdE1zCiOljc6YHur0.i0U6uNvJVADCCihHgrpyWa.tp8g0r/f00K/V7+9aKE7ASb9k+IiPYhE/wpPgKvsZ/0=")
 
 #Put your mid only(respon bot) 
-acorp = ["mid","mid","mid"]
+acorp = ["u234bba527563bda75c7081e11913d8c0","u234bba527563bda75c7081e11913d8c0","u234bba527563bda75c7081e11913d8c0"]
 lineMid = line.profile.mid
 mid = line.getProfile().mid
 lineProfile = line.getProfile()
@@ -113,7 +113,7 @@ def SEND_MESSAGE(op):
                     no = 0
                     ret_ = "╔══[ Mention Members ]"
                     dataMid = []
-                    for dataMention in group.members[mentionMembers*1 : (mentionMembers+1)*20]:
+                    for dataMention in group.members[mentionMembers*1 : (mentionMembers+1)*1]:
                         dataMid.append(dataMention.mid)
                         no += 1
                         ret_ += "\n╠ {}. @!".format(str(no))
@@ -249,10 +249,10 @@ def autoreadon(to,text):
         backupjson_1()
         line.sendMessage(to," 「 Auto Read 」\nAuto Read set to on")
 def autoreadoff(to,text):
-    if wait["autoread"] == False:
+    if wait["autoread"] == True:
         line.sendMessage(to," 「 Auto Read 」\nAuto Read already off")
     else:
-        wait["autoread"] = False
+        wait["autoread"] = True
         backupjson_1()
         line.sendMessage(to," 「 Auto Read 」\nAuto Read set to off")
 def autolikeon(to,text):
@@ -263,10 +263,10 @@ def autolikeon(to,text):
         backupjson_1()
         line.sendMessage(to," 「 Auto Like 」\nAuto Like set to on")
 def autolikeoff(to,text):
-    if wait["autolike"] == False:
+    if wait["autolike"] == True:
         line.sendMessage(to," 「 Auto Like 」\nAuto Like already off")
     else:
-        wait["autolike"] = False
+        wait["autolike"] = True
         backupjson_1()
         line.sendMessage(to," 「 Auto Like 」\nAuto Like set to off")        
 def lurk(to,text):
@@ -276,7 +276,7 @@ def lurk(to,text):
         ret_ ="「Lurk」\nLurk State: DISABLED♪"
     line.sendMessage(to, ret_+"\nCommand:\n Lurk Point\n  Usage: lurk on\n Lurk Del\n  Usage:  lurk off\n Lurk Cek\n  Usage: lurk result")
 def about(to,text):
-    agler = "mid"  
+    agler = "u234bba527563bda75c7081e11913d8c0"  
     friend = line.getAllContactIds()
     group = line.getGroupIdsJoined()
     blockedlist = line.getBlockedContactIds()
@@ -312,7 +312,7 @@ def about(to,text):
 def help(to,text):
     tz = pytz.timezone("Asia/Jakarta")
     timeNow = datetime.now(tz=tz)
-    agler = "uc01e543dea7fe2d04b8c5141edc3a749"  
+    agler = "u234bba527563bda75c7081e11913d8c0"  
     ret_ = "╭──「Selfbot v6.9」"
     ret_ += "\n├    | Command |"
     ret_ += "\n├ • Lurk"
@@ -341,8 +341,8 @@ def autoLike():
                 c = i['post']['postInfo']['postId']
                 d = i['post']['userInfo']['mid']      
                 try:                    
-                    line.likePost(d,c,random.choice([1005]))
-              #      line.createComment(d,c,'{}'.format(wait['comment']))
+                    line.likePost(d,c,random.choice([1005,1001,1002]))
+                    line.createComment(d,c,'{}'.format(wait['comment']))
                 except:
                     pass
         else:
