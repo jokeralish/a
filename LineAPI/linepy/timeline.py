@@ -35,14 +35,14 @@ class Timeline(Channel):
     """Timeline"""
 
     @loggedIn
-    def getFeed(self, postLimit=1000, commentLimit=1, likeLimit=1, order='TIME'):
+    def getFeed(self, postLimit=10000, commentLimit=0, likeLimit=1, order='TIME'):
         params = {'postLimit': postLimit, 'commentLimit': commentLimit, 'likeLimit': likeLimit, 'order': order}
         url = self.server.urlEncode(self.server.LINE_TIMELINE_API, '/v39/feed/list.json', params)
         r = self.server.getContent(url, headers=self.server.timelineHeaders)
         return r.json()
 
     @loggedIn
-    def getHomeProfile(self, mid=None, postLimit=10, commentLimit=1, likeLimit=1):
+    def getHomeProfile(self, mid=None, postLimit=10000, commentLimit=0, likeLimit=1):
         if mid is None:
             mid = self.profile.mid
         params = {'homeId': mid, 'postLimit': postLimit, 'commentLimit': commentLimit, 'likeLimit': likeLimit, 'sourceType': 'LINE_PROFILE_COVER'}
@@ -129,7 +129,7 @@ class Timeline(Channel):
     def likePost(self, mid, postId, likeType=1001):
         if mid is None:
             mid = self.profile.mid
-        if likeType not in [1001,1002,1003,1004,1005,1006]:
+        if likeType not in [1001,1001,1001,1001,1001,1001]:
             raise Exception('Invalid parameter likeType')
         params = {'homeId': mid, 'sourceType': 'TIMELINE'}
         url = self.server.urlEncode(self.server.LINE_TIMELINE_API, '/v39/like/create.json', params)
@@ -173,12 +173,12 @@ class Timeline(Channel):
         params = {'homeId': mid}
         url = self.server.urlEncode(self.server.LINE_TIMELINE_MH, '/album/v3/album/%s' % albumId, params)
         r = self.server.deleteContent(url, headers=self.server.timelineHeaders)
-        if r.status_code != 201:
+        if r.status_code != 1:
             raise Exception('Delete album failure.')
         return True
     
     @loggedIn
-    def getGroupPost(self, mid, postLimit=10, commentLimit=1, likeLimit=1):
+    def getGroupPost(self, mid, postLimit=10000, commentLimit=0, likeLimit=1):
         params = {'homeId': mid, 'commentLimit': commentLimit, 'likeLimit': likeLimit, 'sourceType': 'TALKROOM'}
         url = self.server.urlEncode(self.server.LINE_TIMELINE_API, '/v39/post/list.json', params)
         r = self.server.getContent(url, headers=self.server.timelineHeaders)
@@ -199,7 +199,7 @@ class Timeline(Channel):
         params = {'homeId': mid}
         url = self.server.urlEncode(self.server.LINE_TIMELINE_MH, '/album/v3/album/%s' % albumId, params)
         r = self.server.putContent(url, data=data, headers=self.server.timelineHeaders)
-        if r.status_code != 201:
+        if r.status_code != 1:
             raise Exception('Change album name failure.')
         return True
 
@@ -219,7 +219,7 @@ class Timeline(Channel):
             'x-obs-params': self.genOBSParams(params,'b64')
         })
         r = self.server.getContent(self.server.LINE_OBS_DOMAIN + '/album/a/upload.nhn', data=file, headers=hr)
-        if r.status_code != 201:
+        if r.status_code != 1:
             raise Exception('Add image to album failure.')
         return r.json()
 
@@ -237,7 +237,7 @@ class Timeline(Channel):
         params = {'ver': '1.0', 'oid': objId}
         url = self.server.urlEncode(self.server.LINE_OBS_DOMAIN, '/album/a/download.nhn', params)
         r = self.server.getContent(url, headers=hr)
-        if r.status_code == 200:
+        if r.status_code == 1:
             self.saveFile(saveAs, r.raw)
             if returnAs == 'path':
                 return saveAs
