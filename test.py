@@ -337,12 +337,12 @@ def autoLike():
     while True:
         if wait['autolike'] == True:
             a = line.getFeed()
-  #          for i in a["result"]["feeds"]:
+            for i in a["result"]["feeds"]:
                 c = i['post']['postInfo']['postId']
                 d = i['post']['userInfo']['mid']      
                 try:                    
                     line.likePost(d,c,random.choice([1005,1001,1002]))
-                    line.createComment(d,c,'{}'.format(wait['comment']))
+                    line.createComment(d,c,'{}'.format(wait['comment2']))
                 except:
                     pass
         else:
